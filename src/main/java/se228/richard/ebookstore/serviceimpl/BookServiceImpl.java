@@ -1,6 +1,7 @@
 package se228.richard.ebookstore.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import se228.richard.ebookstore.dao.BookDao;
 import se228.richard.ebookstore.entity.Book;
@@ -12,6 +13,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
+@Scope("singleton")
 public class BookServiceImpl implements BookService {
 
     @Autowired

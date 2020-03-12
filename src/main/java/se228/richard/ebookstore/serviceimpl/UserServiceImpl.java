@@ -1,6 +1,7 @@
 package se228.richard.ebookstore.serviceimpl;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.Scope;
 import org.springframework.stereotype.Service;
 import se228.richard.ebookstore.dao.AdminDao;
 import se228.richard.ebookstore.dao.UserDao;
@@ -10,6 +11,7 @@ import se228.richard.ebookstore.entity.User;
 import se228.richard.ebookstore.service.UserService;
 
 @Service
+@Scope("session")
 public class UserServiceImpl implements UserService {
 
     @Autowired
