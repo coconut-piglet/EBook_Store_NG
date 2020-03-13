@@ -11,6 +11,7 @@ import se228.richard.ebookstore.service.BookService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
+import java.rmi.RemoteException;
 import java.util.List;
 
 @RestController
@@ -27,7 +28,7 @@ public class BookController {
     WebApplicationContext applicationContext;
 
     @RequestMapping(value = "/fetchlibrary",method = RequestMethod.GET)
-    public List<Book> fetchLibrary() {
+    public List<Book> fetchLibrary() throws RemoteException {
         BookService bookService = applicationContext.getBean(BookService.class);
         // Print the service created and myself
         System.out.println("本次使用的service：" + bookService);
@@ -36,7 +37,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/fetchdetail",method = RequestMethod.GET)
-    public BookDetail fetchBookDetail(@RequestParam("bookid") int bookid) {
+    public BookDetail fetchBookDetail(@RequestParam("bookid") int bookid) throws RemoteException {
         BookService bookService = applicationContext.getBean(BookService.class);
         // Print the service created and myself
         System.out.println("本次使用的service：" + bookService);
@@ -61,7 +62,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/fetchdesc", method = RequestMethod.GET)
-    public Message fetchBookDesc(@RequestParam("bookid") int bookid) {
+    public Message fetchBookDesc(@RequestParam("bookid") int bookid) throws RemoteException {
         BookService bookService = applicationContext.getBean(BookService.class);
         // Print the service created and myself
         System.out.println("本次使用的service：" + bookService);
@@ -70,7 +71,7 @@ public class BookController {
     }
 
     @RequestMapping(value = "/addview", method = RequestMethod.GET)
-    public Message addBookView(@RequestParam("bookid") int bookid) {
+    public Message addBookView(@RequestParam("bookid") int bookid) throws RemoteException {
         BookService bookService = applicationContext.getBean(BookService.class);
         // Print the service created and myself
         System.out.println("本次使用的service：" + bookService);

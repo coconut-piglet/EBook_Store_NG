@@ -12,6 +12,7 @@ import se228.richard.ebookstore.service.BookService;
 
 import javax.servlet.http.HttpServletResponse;
 import java.io.OutputStream;
+import java.rmi.RemoteException;
 import java.util.List;
 
 @RestController
@@ -68,7 +69,7 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/modifybookdesc", method = RequestMethod.POST)
-    public Message modifyBookDesc(@RequestBody BookDetail bookDetail) {
+    public Message modifyBookDesc(@RequestBody BookDetail bookDetail) throws RemoteException {
         String desc = bookDetail.getBookdescription();
         if (!desc.equals("")) {
             int bookid = bookDetail.getBookid();
