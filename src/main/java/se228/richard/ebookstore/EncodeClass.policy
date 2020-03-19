@@ -1,0 +1,3 @@
+grant {
+    permission se228.richard.ebookstore.EncodeClassPermission "src", "deny";
+};

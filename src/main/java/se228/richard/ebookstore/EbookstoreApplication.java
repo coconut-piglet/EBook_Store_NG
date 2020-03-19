@@ -7,13 +7,13 @@ import java.awt.*;
 import java.lang.reflect.Method;
 
 @SpringBootApplication
-public class EbookstoreApplication extends Component {
+public class EbookstoreApplication {
 
     public static void main(String[] args) {
         String currentDir = System.getProperty("user.dir") + "/target/classes/se228/richard/ebookstore/";
         EncodeClass encodeClass = new EncodeClass();
         String[] testArgs = new String[] {currentDir + "TestClass.class",currentDir + "TestClass.cryptclass","343"};
-        encodeClass.encode(testArgs);
+        encodeClass.main(testArgs);
         try {
             ClassLoader classLoader = new DecodeClassLoader(343);
             System.out.println("Main: create DecodeClassLoader successfully!");
