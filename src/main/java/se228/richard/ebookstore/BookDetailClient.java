@@ -14,7 +14,7 @@ public class BookDetailClient {
     public static void main(String[] args) throws RemoteException, NamingException {
         Context namingContext = new InitialContext();
         
-        String url = "rmi://localhost/bookDetailServer_6";
+        String url = "rmi://localhost/book_detail_server";
         BookService bookService = (BookService) namingContext.lookup(url);
         
         String bookname = "Steve Jobs";

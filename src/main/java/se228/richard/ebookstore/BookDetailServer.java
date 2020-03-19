@@ -15,7 +15,7 @@ public class BookDetailServer {
 
         System.out.println("Binding BookDetailServer implementation to registry...");
         Context namingContext = new InitialContext();
-        namingContext.bind("rmi:bookDetailServer_6", bookServiceImpl);
+        namingContext.bind("rmi:book_detail_server", bookServiceImpl);
 
         System.out.println("Waiting for invocations from clients...");
     }
