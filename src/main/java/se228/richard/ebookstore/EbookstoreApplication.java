@@ -3,7 +3,6 @@ package se228.richard.ebookstore;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import java.awt.*;
 import java.lang.reflect.Method;
 
 @SpringBootApplication
@@ -19,8 +18,6 @@ public class EbookstoreApplication {
             System.out.println("Main: create DecodeClassLoader successfully!");
             Class testClass = classLoader.loadClass("se228.richard.ebookstore.TestClass");
             System.out.println("Main: class loaded successfully!");
-            //String[] newArgs = new String[] {"Hello world from Spring Boot main!"};
-            //System.out.println("Main: construct args successfully!");
             Method method = testClass.getMethod("saysomething", String.class);
             System.out.println("Main: create method successfully!");
             Object obj = testClass.newInstance();
