@@ -9,6 +9,7 @@ import se228.richard.ebookstore.entity.User;
 import se228.richard.ebookstore.service.UserService;
 
 import javax.servlet.http.HttpServletResponse;
+import java.util.concurrent.atomic.AtomicInteger;
 
 @RestController
 @CrossOrigin(origins = "http://localhost:8080")
@@ -20,8 +21,25 @@ public class UserController {
     //@Autowired
     //private UserService userService;
 
+    private AtomicInteger count = new AtomicInteger(0);
+
     @Autowired
     WebApplicationContext applicationContext;
+
+    @RequestMapping(value="/increaseviews",method = RequestMethod.GET)
+    public Message increaseViews() {
+        int before = count.get();
+        count.incrementAndGet();
+        int after = count.get();
+        return new Message("SUCCESS", "Views increase from " + before + " to " + after);
+    }
+
+    @RequestMapping(value="/getviews",method = RequestMethod.GET)
+    public Message getViews() {
+        int current = count.get();
+        return new Message("SUCCESS", "Current views " + current);
+    }
+
 
     @RequestMapping(value = "/checkusername",method = RequestMethod.GET)
     public Message checkUsername(@RequestParam(value = "username",required = true) String username) {
